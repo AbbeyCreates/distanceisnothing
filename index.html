@@ -296,93 +296,93 @@
             
             <div class="slideshow-container">
                 <div class="slide fade">
-                    <img src="m5.jpg" alt="Our first date">
+                    <img src="../Desktop/Memories/m5.jpg" alt="Our first date">
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="M1.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/M1.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m2.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m2.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
                 
                 <div class="slide fade">
-                    <img src="m8.jpg" alt="That time we laughed so hard">
+                    <img src="../Desktop/Memories/m8.jpg" alt="That time we laughed so hard">
                 </div>
                 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m7.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m7.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m3.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m3.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m4.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m4.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m9.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m9.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m11.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m11.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m10.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m10.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m19.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m19.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m12.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m12.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m13.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m13.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m17.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m17.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
@@ -397,28 +397,28 @@
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m15.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m15.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m16.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m16.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m14.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m14.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
 
                 <div class="slide fade">
                     <video controls class="memory-media">
-                        <source src="m6.mp4" type="video/mp4">
+                        <source src="../Desktop/Memories/m6.mp4" type="video/mp4">
                         Your browser doesn't support HTML5 video.
                     </video>
                 </div>
@@ -493,17 +493,6 @@
             });
             document.getElementById(pageId).classList.add('active');
         }
-         // Reset map view when switching to distance page
-        if (pageId === 'distance') {
-            setTimeout(() => {
-                distanceMap.invalidateSize();
-                if (window.distanceBounds) {
-                    distanceMap.fitBounds(window.distanceBounds.pad(0.2));
-                }
-            }, 100);
-        }
-    
-    
         
         // Slideshow functionality
         let slideIndex = 1;
@@ -545,85 +534,83 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
         
-        // Initialize the map when the page loads
-    document.addEventListener('DOMContentLoaded', function() {
         // Distance Map functionality
-        const distanceMap = L.map('distance-map', {
-            center: [35.0, -95.0], // Center of US
-            zoom: 3,
-            zoomControl: false
-        });
-        
-        // Add tile layer
+        const distanceMap = L.map('distance-map');
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(distanceMap);
         
         // Set your locations here (latitude, longitude)
-        const yourLocation = [17.980671, -76.817917]; // Jamaica coordinates
-        const theirLocation = [48.928191, -115.122128]; // Montana coordinates
+        const yourLocation = [17.980671, -76.817917]; 
+        const theirLocation = [48.928191, -115.122128]; 
         
-        // Create custom markers with heart icons
-        const heartIcon = L.icon({
-            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [1, -34]
-        });
-        
-        const yourMarker = L.marker(yourLocation, {icon: heartIcon}).addTo(distanceMap);
-        const theirMarker = L.marker(theirLocation, {icon: heartIcon}).addTo(distanceMap);
-        
+        // Create custom heart markers
+        const yourMarker = L.circleMarker(yourLocation, {
+            radius: 10,
+            fillColor: "#ff4d4d",
+            color: "#fff",
+            weight: 2,
+            opacity: 1,
+            fillOpacity: 0.8
+        }).addTo(distanceMap);
+
+        const theirMarker = L.circleMarker(theirLocation, {
+            radius: 10,
+            fillColor: "#ff4d4d",
+            color: "#fff",
+            weight: 2,
+            opacity: 1,
+            fillOpacity: 0.8
+        }).addTo(distanceMap);
+
         // Add labels
-        yourMarker.bindTooltip("You (Jamaica)", {permanent: true, direction: 'right'});
-        theirMarker.bindTooltip("Jaudell (Montana)", {permanent: true, direction: 'right'});
-        
+        yourMarker.bindTooltip("You", {permanent: true, direction: 'right'});
+        theirMarker.bindTooltip("Jaudell", {permanent: true, direction: 'right'});
+
         // Draw a line between the locations
         const connectionLine = L.polyline([yourLocation, theirLocation], {
             color: '#ff4d4d',
             weight: 3,
             dashArray: '10, 10'
         }).addTo(distanceMap);
-        
+
         // Calculate distance
         function calculateDistance(lat1, lon1, lat2, lon2) {
-            const R = 6371; // Earth radius in km
-            const dLat = (lat2 - lat1) * Math.PI / 180;
-            const dLon = (lon2 - lon1) * Math.PI / 180;
-            const a = 
-                Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
-                Math.sin(dLon/2) * Math.sin(dLon/2);
-            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-            const distanceKm = R * c;
-            const distanceMiles = distanceKm * 0.621371;
-            return distanceMiles.toFixed(0);
+            const p1 = new LatLon(lat1, lon1);
+            const p2 = new LatLon(lat2, lon2);
+            const distance = p1.distanceTo(p2);
+            
+            // Convert meters to miles
+            const miles = distance / 1609.34;
+            return miles.toFixed(0);
         }
-        
+
         // Update distance info
         const distance = calculateDistance(
             yourLocation[0], yourLocation[1],
             theirLocation[0], theirLocation[1]
         );
-        
+
         document.getElementById('distance-text').textContent = 
             `We're ${distance} miles apart`;
         
-        // Custom message
-        let customMessage = distance > 1000 
-            ? "No distance is too great when it comes to loving you."
-            : "Miles may separate us, but nothing can separate our hearts.";
+        // Customize your message based on distance
+        let customMessage = "";
+        if (distance < 50) {
+            customMessage = "We're practically neighbors! So lucky to have you close.";
+        } else if (distance < 300) {
+            customMessage = "Just a short journey between us. Missing you every day.";
+        } else if (distance < 1000) {
+            customMessage = "Miles may separate us, but nothing can separate our hearts.";
+        } else {
+            customMessage = "No distance is too great when it comes to loving you.";
+        }
         
         document.getElementById('distance-message').textContent = customMessage;
-        
+
         // Fit map to show both locations
         window.distanceBounds = L.latLngBounds([yourLocation, theirLocation]);
-        distanceMap.fitBounds(window.distanceBounds.pad(0.5));
-        
-        // Add zoom control after initial fit
-        L.control.zoom({ position: 'topright' }).addTo(distanceMap);
-    });
-</script>
+        distanceMap.fitBounds(window.distanceBounds.pad(0.2));
     </script>
 </body>
 </html>
